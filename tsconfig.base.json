@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cypress-dx/ci-config": ["libs/config/src/index.ts"]
+      "@cypress-ci/ci-config": ["libs/ci/config/src/index.ts"],
+      "@cypress-dx/ci-generate": ["libs/ci/generate/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

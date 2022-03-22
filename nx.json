@@ -28,7 +28,10 @@
     ]
   },
   "projects": {
-    "config": {
+    "ci-config": {
+      "tags": []
+    },
+    "ci-generate": {
       "tags": []
     }
   }

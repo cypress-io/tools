@@ -1,33 +1,65 @@
 {
   "version": 2,
   "projects": {
-    "config": {
-      "root": "libs/config",
-      "sourceRoot": "libs/config/src",
+    "ci-config": {
+      "root": "libs/ci/config",
+      "sourceRoot": "libs/ci/config/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/workspace:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/config",
-            "main": "libs/config/src/index.ts",
-            "tsConfig": "libs/config/tsconfig.lib.json",
-            "assets": ["libs/config/*.md"]
+            "outputPath": "dist/libs/ci/config",
+            "main": "libs/ci/config/src/index.ts",
+            "tsConfig": "libs/ci/config/tsconfig.lib.json",
+            "assets": ["libs/ci/config/*.md"]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["libs/config/**/*.ts"]
+            "lintFilePatterns": ["libs/ci/config/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/config"],
+          "outputs": ["coverage/libs/ci/config"],
           "options": {
-            "jestConfig": "libs/config/jest.config.js",
+            "jestConfig": "libs/ci/config/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ci-generate": {
+      "root": "libs/ci/generate",
+      "sourceRoot": "libs/ci/generate/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ci/generate",
+            "main": "libs/ci/generate/src/index.ts",
+            "tsConfig": "libs/ci/generate/tsconfig.lib.json",
+            "assets": ["libs/ci/generate/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ci/generate/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ci/generate"],
+          "options": {
+            "jestConfig": "libs/ci/generate/jest.config.js",
             "passWithNoTests": true
           }
         }
