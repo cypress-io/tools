@@ -36,6 +36,9 @@
     },
     "ci-generate": {
       "tags": []
+    },
+    "ci-github-actions": {
+      "tags": []
     }
   }
 }

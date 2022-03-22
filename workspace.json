@@ -96,6 +96,38 @@
           }
         }
       }
+    },
+    "ci-github-actions": {
+      "root": "libs/ci/github-actions",
+      "sourceRoot": "libs/ci/github-actions/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ci/github-actions",
+            "main": "libs/ci/github-actions/src/index.ts",
+            "tsConfig": "libs/ci/github-actions/tsconfig.lib.json",
+            "assets": ["libs/ci/github-actions/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ci/github-actions/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ci/github-actions"],
+          "options": {
+            "jestConfig": "libs/ci/github-actions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
