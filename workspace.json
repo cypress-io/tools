@@ -1,6 +1,38 @@
 {
   "version": 2,
   "projects": {
+    "ci-circle-ci": {
+      "root": "libs/ci/circle-ci",
+      "sourceRoot": "libs/ci/circle-ci/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/ci/circle-ci",
+            "main": "libs/ci/circle-ci/src/index.ts",
+            "tsConfig": "libs/ci/circle-ci/tsconfig.lib.json",
+            "assets": ["libs/ci/circle-ci/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ci/circle-ci/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ci/circle-ci"],
+          "options": {
+            "jestConfig": "libs/ci/circle-ci/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ci-config": {
       "root": "libs/ci/config",
       "sourceRoot": "libs/ci/config/src",

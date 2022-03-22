@@ -1,13 +1,12 @@
-import { GenerateConfig } from "@cypress-ci/ci-config";
+import { GenerateConfig } from "@cypress-dx/ci-config";
+import { generateCircleCI } from "@cypress-dx/circle-ci";
 
 export function ciGenerate(config: GenerateConfig) {
   switch (config.provider) {
     case 'CircleCI':
-      // TODO CircleCIGenerator
-      return config.provider
+      return generateCircleCI(config)
 
     case 'GitHub Actions':
-      // TODO GitHubActionsGenerator
       return config.provider;
   
     default:

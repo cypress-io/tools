@@ -1,5 +1,5 @@
 {
-  "npmScope": "cypress-ci",
+  "npmScope": "cypress-dx",
   "affected": {
     "defaultBase": "master"
   },
@@ -28,6 +28,9 @@
     ]
   },
   "projects": {
+    "ci-circle-ci": {
+      "tags": []
+    },
     "ci-config": {
       "tags": []
     },
