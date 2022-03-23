@@ -1,7 +1,7 @@
 export type CIProvider = 'CircleCI' | 'GitHub Actions';
 export type PackageManager = 'npm' | 'yarn';
 export type CypressTestTypes = 'e2e' | 'component' | 'both';
-export type CIOnType = 'pull request' | 'merge';
+export type CIOnType = 'pull request' | 'merge' | 'push';
 
 export interface GenerateConfig {
   provider: CIProvider;
