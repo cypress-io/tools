@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@cypress-dx/ci-config": ["libs/ci/config/src/index.ts"],
+      "@cypress-dx/ci-generate": ["libs/ci/generate/src/index.ts"],
+      "@cypress-dx/circle-ci": ["libs/ci/circle-ci/src/index.ts"],
+      "@cypress-dx/github-actions": ["libs/ci/github-actions/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
