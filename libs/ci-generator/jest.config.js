@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'ci-circle-ci',
-  preset: '../../../jest.preset.js',
+  displayName: 'ci-generator',
+  preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,5 +10,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/ci/circle-ci',
+  coverageDirectory: '../../coverage/libs/ci-generator',
 };
