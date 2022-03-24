@@ -11,5 +11,5 @@ export interface GenerateConfig {
   testType: CypressTestTypes;
   triggerType: CIOnType;
   triggerBranches: string[];
-  recordKey: string;
+  recordKey: boolean;
 }
