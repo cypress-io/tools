@@ -15,10 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cypress-dx/ci-config": ["libs/ci/config/src/index.ts"],
-      "@cypress-dx/ci-generate": ["libs/ci/generate/src/index.ts"],
-      "@cypress-dx/circle-ci": ["libs/ci/circle-ci/src/index.ts"],
-      "@cypress-dx/github-actions": ["libs/ci/github-actions/src/index.ts"]
+      "@cypress-dx/ci-generator": ["libs/ci-generator/src/index.ts"],
+      "@cypress-dx/ci-config": ["libs/ci-config/src/index.ts"],
+      "@cypress-dx/providers-circle-ci": [
+        "libs/providers/circle-ci/src/index.ts"
+      ],
+      "@cypress-dx/providers-github-actions": [
+        "libs/providers/github-actions/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
