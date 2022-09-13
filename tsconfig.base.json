@@ -15,8 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cypress-dx/ci-generator": ["libs/ci-generator/src/index.ts"],
       "@cypress-dx/ci-config": ["libs/ci-config/src/index.ts"],
+      "@cypress-dx/ci-generator": ["libs/ci-generator/src/index.ts"],
+      "@cypress-dx/cy-scaffold": ["libs/cy-scaffold/src/index.ts"],
       "@cypress-dx/providers-circle-ci": [
         "libs/providers/circle-ci/src/index.ts"
       ],
