@@ -1,7 +1,4 @@
 export {
-  CIOnType,
-  CIProvider,
-  CypressTestTypes,
   GenerateConfig,
-  PackageManager,
+  generate
 } from './lib/config';

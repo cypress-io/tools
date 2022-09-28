@@ -1,5 +1,5 @@
 {
-  "name": "@cypress-dx/cy-scaffold",
+  "name": "@cypress/cy-scaffold",
   "type": "module",
   "version": "0.0.1"
 }

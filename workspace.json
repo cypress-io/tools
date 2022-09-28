@@ -34,39 +34,6 @@
       },
       "tags": []
     },
-    "ci-generator": {
-      "root": "libs/ci-generator",
-      "sourceRoot": "libs/ci-generator/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/ci-generator",
-            "main": "libs/ci-generator/src/index.ts",
-            "tsConfig": "libs/ci-generator/tsconfig.lib.json",
-            "assets": ["libs/ci-generator/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/ci-generator/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ci-generator"],
-          "options": {
-            "jestConfig": "libs/ci-generator/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
     "cy-scaffold": {
       "root": "libs/cy-scaffold",
       "sourceRoot": "libs/cy-scaffold/src",
@@ -87,72 +54,6 @@
           }
         }
       }
-    },
-    "providers-circle-ci": {
-      "root": "libs/providers/circle-ci",
-      "sourceRoot": "libs/providers/circle-ci/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/providers/circle-ci",
-            "main": "libs/providers/circle-ci/src/index.ts",
-            "tsConfig": "libs/providers/circle-ci/tsconfig.lib.json",
-            "assets": ["libs/providers/circle-ci/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/providers/circle-ci/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/providers/circle-ci"],
-          "options": {
-            "jestConfig": "libs/providers/circle-ci/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
-    "providers-github-actions": {
-      "root": "libs/providers/github-actions",
-      "sourceRoot": "libs/providers/github-actions/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/providers/github-actions",
-            "main": "libs/providers/github-actions/src/index.ts",
-            "tsConfig": "libs/providers/github-actions/tsconfig.lib.json",
-            "assets": ["libs/providers/github-actions/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/providers/github-actions/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/providers/github-actions"],
-          "options": {
-            "jestConfig": "libs/providers/github-actions/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
     }
   }
 }

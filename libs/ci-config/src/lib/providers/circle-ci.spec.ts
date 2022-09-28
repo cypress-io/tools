@@ -1,5 +1,5 @@
-import { generateCircleCI } from "./ci-circle-ci";
-import { GenerateConfig } from '@cypress-dx/ci-config';
+import { GenerateConfig } from "../config";
+import { generateCircleCI } from "./circle-ci";
 
 describe('generateCircleCI', () => {
     it('it creates valid CircleCI YML WITHOUT recording', () => {

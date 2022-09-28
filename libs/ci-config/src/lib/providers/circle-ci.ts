@@ -1,5 +1,4 @@
-import { GenerateConfig } from "@cypress-dx/ci-config";
-
+import { GenerateConfig } from "../config";
 
 const generateBasicYmlText = (): string => 
 `# to use orbs, must use version >= 2.1
