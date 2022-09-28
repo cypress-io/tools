@@ -33,27 +33,6 @@
         }
       },
       "tags": []
-    },
-    "cy-scaffold": {
-      "root": "libs/cy-scaffold",
-      "sourceRoot": "libs/cy-scaffold/src",
-      "projectType": "library",
-      "tags": [],
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/cy-scaffold/**/*.{ts,js}"]
-          }
-        },
-        "test": {
-          "executor": "@nxext/vitest:vitest",
-          "options": {
-            "command": "run"
-          }
-        }
-      }
     }
   }
 }

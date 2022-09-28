@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cypress/ci-config": ["libs/ci-config/src/index.ts"],
-      "@cypress/cy-scaffold": ["libs/cy-scaffold/src/index.ts"]
+      "@cypress/ci-config": ["libs/ci-config/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
