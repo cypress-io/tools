@@ -1,6 +1,6 @@
 
 
-# CypressCi
+# Cypress Tools
 
 This project was generated using [Nx](https://nx.dev).
 
