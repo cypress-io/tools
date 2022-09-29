@@ -1,5 +1,5 @@
-import { GenerateConfig } from "@cypress-dx/ci-config";
-import { generateGitHubActions } from "./ci-github-actions";
+import { GenerateConfig } from "../config";
+import { generateGitHubActions } from "./github-actions";
 
 describe('generateGitHubActions', () => {
   it('returns the basic YML WITHOUT Recording on push', () => {

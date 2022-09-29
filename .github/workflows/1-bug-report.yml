@@ -1,0 +1,50 @@
+name: "🐛 Bug report"
+description: Report a bug found.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? 👉 [Start a new discussion](https://github.com/cypress-io/tools/discussions) or [ask in chat](https://on.cypress.io/discord).
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior
+      description: Please provide a description including screenshots, stack traces, etc. [Troubleshooting tips](https://on.cypress.io/troubleshooting).
+      placeholder: Currently...
+    validations:
+      required: true
+  - type: textarea
+    id: desired-behavior
+    attributes:
+      label: Desired behavior
+      description: Remember, we're not familiar with the app you're testing, so please provide a clear description of what should happen.
+      placeholder: In this situation, it should...
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Test code to reproduce
+      description: Please provide a failing test or repo we can run. You can fork [this repo](https://github.com/cypress-io/cypress-test-tiny), set up a failing test, then link to your fork. If you have never done this before, watch [this video](https://youtu.be/NnriKHmj5T8) for example.
+      placeholder: Here is my failing test code and the app code to run the tests on...
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node version
+      description: What version of node.js are you using?
+      placeholder: ex. v16.16.0
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system is running when you are encountering your problem?  The more specific the better.  ie macOS 12.4 or Windows 10.0.19044.1889
+      placeholder: ex. macOS 12.4
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: Other
+      placeholder: Any other details?

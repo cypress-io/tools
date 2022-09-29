@@ -1,4 +1,4 @@
-import { GenerateConfig } from "@cypress-dx/ci-config";
+import { GenerateConfig } from "../config";
 
 const generateBasicYmlText = (config: GenerateConfig): string =>
 `name: Cypress GitHub Action CI Script
