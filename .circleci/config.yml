@@ -1,26 +1,68 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+orbs:
+  nx: nrwl/nx@1.5.1
+
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  agent:
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: cimg/node:lts-browsers
+    parameters:
+      ordinal:
+        type: integer
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Start the agent << parameters.ordinal >>
+          command: npx nx-cloud start-agent
+          no_output_timeout: 60m
+  main:
+    docker:
+      - image: cimg/node:lts-browsers
+    environment:
+      NX_CLOUD_DISTRIBUTED_EXECUTION: 'true'
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - nx/set-shas:
+          main-branch-name: 'master'
+      - run:
+          name: Initialize the Nx Cloud distributed CI run
+          command: npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+      - run:
+          name: Run workspace lint
+          command: npx nx-cloud record -- npx nx workspace-lint
+      - run:
+          name: Check format
+          command: npx nx-cloud record -- npx nx format:check --base=$NX_BASE --head=$NX_HEAD
+      - run:
+          name: Run lint
+          command: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=lint --parallel=3
+      - run:
+          name: Run test
+          command: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=test --parallel=3 --ci --code-coverage
+      - run:
+          name: Run build
+          command: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
+      - run:
+          name: Stop all agents
+          command: npx nx-cloud stop-all-agents
+          when: always
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  version: 2
+
+  ci:
     jobs:
-      - say-hello
+      - agent:
+          name: Nx Cloud Agent << matrix.ordinal >>
+          matrix:
+            parameters:
+              ordinal: [1, 2, 3]
+      - main:
+          name: Nx Cloud Main
