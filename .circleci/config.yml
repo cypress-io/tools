@@ -1,0 +1,68 @@
+version: 2.1
+
+orbs:
+  nx: nrwl/nx@1.5.1
+
+jobs:
+  agent:
+    docker:
+      - image: cimg/node:lts-browsers
+    parameters:
+      ordinal:
+        type: integer
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Start the agent << parameters.ordinal >>
+          command: npx nx-cloud start-agent
+          no_output_timeout: 60m
+  main:
+    docker:
+      - image: cimg/node:lts-browsers
+    environment:
+      NX_CLOUD_DISTRIBUTED_EXECUTION: 'true'
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - nx/set-shas:
+          main-branch-name: 'master'
+      - run:
+          name: Initialize the Nx Cloud distributed CI run
+          command: npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+      - run:
+          name: Run workspace lint
+          command: npx nx-cloud record -- npx nx workspace-lint
+      - run:
+          name: Check format
+          command: npx nx-cloud record -- npx nx format:check --base=$NX_BASE --head=$NX_HEAD
+      - run:
+          name: Run lint
+          command: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=lint --parallel=3
+      - run:
+          name: Run test
+          command: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=test --parallel=3 --ci --code-coverage
+      - run:
+          name: Run build
+          command: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
+      - run:
+          name: Stop all agents
+          command: npx nx-cloud stop-all-agents
+          when: always
+
+workflows:
+  version: 2
+
+  ci:
+    jobs:
+      - agent:
+          name: Nx Cloud Agent << matrix.ordinal >>
+          matrix:
+            parameters:
+              ordinal: [1, 2, 3]
+      - main:
+          name: Nx Cloud Main
