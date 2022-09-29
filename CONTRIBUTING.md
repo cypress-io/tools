@@ -58,7 +58,7 @@ Also, your proposed solution may not be compatible with the direction we want to
 
 ## Writing Documentation
 
-All documentation for the Cypress Tools repos live in this repository in their respective directories `README's`.
+All documentation for the Cypress Tools repos live in this repository in their respective directories `READMEs`.
 
 ## Writing code
 
