@@ -1,5 +1,7 @@
 # Cypress Tools
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/cypress-io/tools/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/cypress-io/tools/tree/master)
+
 Cypress tools is a monorepo used for official cypress tools and extensions managed by the Cypress Tools team.
 
 ## Contributing
