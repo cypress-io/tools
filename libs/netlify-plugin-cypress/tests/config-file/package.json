@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "../../node_modules/.bin/react-scripts start",
-    "build": "../../node_modules/.bin/react-scripts build",
-    "cypress:open": "../../node_modules/.bin/cypress open",
-    "cypress:run": "../../node_modules/.bin/cypress run",
-    "netlify:build": "../../node_modules/.bin/netlify build"
+    "start": "../../../../node_modules/.bin/react-scripts start",
+    "build": "../../../../node_modules/.bin/react-scripts build",
+    "cypress:open": "../../../../node_modules/.bin/cypress open",
+    "cypress:run": "../../../../node_modules/.bin/cypress run",
+    "netlify:build": "../../../../node_modules/.bin/netlify build"
   }
 }
