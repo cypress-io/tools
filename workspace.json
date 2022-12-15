@@ -25,7 +25,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ci-config"],
+          "outputs": ["{workspaceRoot}/coverage/libs/ci-config"],
           "options": {
             "jestConfig": "libs/ci-config/jest.config.js",
             "passWithNoTests": true
